@@ -6,6 +6,7 @@ __author__ = 'Steve Lechner’
 # then recursively repeating this activity on each yet unvisited url that it
 # finds. The program will output the search links and counts in a csv file.
 # It will print how much time it took to run.
+# TODO: change the results directory in line 28 to the directory you want.
 
 import requests
 import csv
@@ -23,6 +24,8 @@ def get_new_links(url, url_list, search_string):
     the newly found urls. It then returns the url list with its counts of
     the search_string on each visited page.
     '''
+    # put in your results folder directory
+    results_directory = "***MAKE THIS YOUR DIRECTORY***"
 
     # get the domain from the url
     if url.find('.com') > 0:
@@ -77,7 +80,7 @@ def get_new_links(url, url_list, search_string):
                         # and just in case stuff goes wrong, save a draft of
                         # the results every 25 links.
                         if len(url_list) % 25 == 0:
-                            with open("/Users/stephenlechner/Google Drive/Steve Docs/General_Crawler_Results_-_" +
+                            with open(results_directory + "site_string_count_results_-_" +
                                       search_string + "_DRAFT.csv", "wb") \
                                     as draft_doc:
                                 draft_writer = csv.writer(draft_doc)
@@ -111,7 +114,7 @@ a_link_list = list()
 
 a_link_list = get_new_links('http://' + main_site, a_link_list, target)
 
-with open("/Users/stephenlechner/Google Drive/Steve Docs/General_Crawler_Results_-_" +
+with open(results_directory + "/site_string_count_results_-_" +
           main_site + "_" + target + ".csv", "wb") as write_doc:
     doc_writer = csv.writer(write_doc)
     doc_writer.writerow(list((
