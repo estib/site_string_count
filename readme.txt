@@ -23,8 +23,8 @@ can take a while, depending on how many pages are on the website you're
 searching.
 
 Before running, be sure to change the directory for both the final results csv
-and for the draft csv to what you want them to be. These are found on lines
-114 and 80, respectively.
+and for the draft csv to what you want them to be. You can update these on
+line 28.
 
 TODO:
 
